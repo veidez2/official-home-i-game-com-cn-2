@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 专题介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', 'PingFang SC', Roboto, system-ui, -apple-system, sans-serif;
+            background-color: #f4f6f9;
+            color: #1e2a3a;
+            line-height: 1.7;
+        }
+
+        /* 深色横幅头图 */
+        .hero {
+            background: linear-gradient(145deg, #0b1a2e 0%, #1a2f44 100%);
+            padding: 3rem 1.5rem 2.8rem;
+            text-align: center;
+            position: relative;
+            color: #e7edf5;
+            box-shadow: inset 0 -2px 8px rgba(0,0,0,0.15);
+        }
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+        .hero .sub {
+            font-size: 1.1rem;
+            font-weight: 300;
+            opacity: 0.85;
+            max-width: 640px;
+            margin: 0.3rem auto 1rem;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            padding-top: 1rem;
+        }
+        .hero .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            color: #b6c9e0;
+        }
+
+        /* 浅色正文区容器 */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2.2rem 1.8rem 3rem;
+            background: #ffffff;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03);
+        }
+
+        /* 三段自然介绍 */
+        .intro-block {
+            margin-bottom: 2.8rem;
+        }
+        .intro-block:last-of-type {
+            margin-bottom: 1.2rem;
+        }
+        .intro-block h2 {
+            font-size: 1.7rem;
+            font-weight: 500;
+            color: #14273e;
+            border-left: 5px solid #2f7c6c;
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+        }
+        .intro-block p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            color: #2f3e52;
+        }
+        .intro-block p.inset {
+            background: #f2f5fa;
+            padding: 1rem 1.2rem;
+            border-radius: 12px;
+            border-left: 3px solid #2f7c6c;
+        }
+
+        /* 网站特点/可信说明卡片 */
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 2rem 0 2.5rem;
+        }
+        .feature-item {
+            flex: 1 1 220px;
+            background: #f9fbfd;
+            border-radius: 20px;
+            padding: 1.5rem 1.2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+            transition: transform 0.1s, box-shadow 0.2s;
+            border: 1px solid #eef2f7;
+        }
+        .feature-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(35, 77, 80, 0.06);
+        }
+        .feature-item h3 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #1a3a3a;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.5px;
+        }
+        .feature-item p {
+            font-size: 0.95rem;
+            color: #3e4d5f;
+        }
+
+        /* 强调色链接 */
+        a {
+            color: #116466;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s, color 0.15s;
+        }
+        a:hover {
+            color: #0b4b4b;
+            border-bottom: 1px solid #0b4b4b;
+        }
+
+        /* FAQ 摘要 */
+        .faq-mini {
+            margin: 2rem 0 1.5rem;
+            padding: 1.5rem 0 0.5rem;
+            border-top: 2px solid #e1e9f0;
+        }
+        .faq-mini details {
+            margin-bottom: 0.8rem;
+        }
+        .faq-mini summary {
+            font-weight: 500;
+            cursor: pointer;
+            color: #1c3b4b;
+            padding: 0.3rem 0;
+        }
+        .faq-mini details p {
+            margin: 0.5rem 0 0.2rem 1.2rem;
+            color: #3a4d5f;
+            font-size: 0.95rem;
+        }
+
+        /* 页尾访问提示 */
+        .footer-note {
+            margin-top: 3rem;
+            padding: 1.8rem 1.2rem;
+            background: #edf1f8;
+            border-radius: 24px;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #1f3143;
+            border: 1px solid #dae1ec;
+        }
+        .footer-note strong {
+            font-weight: 500;
+            color: #0b524f;
+        }
+
+        /* 响应式 */
+        @media (max-width: 680px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .container {
+                padding: 1.5rem 1.2rem 2.5rem;
+            }
+            .feature-grid {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .feature-item {
+                flex: 1 1 auto;
+            }
+            .intro-block h2 {
+                font-size: 1.35rem;
+                padding-left: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 首页横幅 -->
+    <header class="hero">
+        <h1>爱游戏 · 专题</h1>
+        <p class="sub">一个专注游戏内容与资讯的站点，以平实视角连接玩家与作品</p>
+        <span class="badge">介绍 · 可信来源</span>
+    </header>
+
+    <!-- 正文区 -->
+    <main class="container">
+
+        <!-- 背景说明 / 站点介绍 -->
+        <section class="intro-block">
+            <h2>站点背景与定位</h2>
+            <p>
+                <a href="https://official-home-i-game.com.cn">爱游戏</a> 是一个围绕游戏话题展开的信息汇集站点，旨在为玩家提供相对系统的作品介绍、动态追踪以及社区参考。站点内容由热爱游戏的编辑团队筛选整理，力求呈现经过核实的资讯，减少不可靠信息的干扰。
+            </p>
+            <p>
+                不同于一般资讯站，这里更注重内容的条理性与出处说明。每一篇专题或列表都会标注信息来源及更新时间，方便读者自行判断参考价值。如果你希望快速了解某款游戏的背景、机制或近期动态，这里或许能提供一个清晰的开端。
+            </p>
+        </section>
+
+        <!-- 可信说明 + 特点卡片 -->
+        <section class="intro-block">
+            <h2>内容特点与可信度</h2>
+            <p>
+                网站不声称拥有独家内幕，也不做夸张保证，而是坚持“可溯源、有依据、持续维护”的整理原则。编辑团队会定期复查已发布内容，修正过时信息，并标注勘误记录。这使得 
+                <a href="https://official-home-i-game.com.cn">爱游戏</a> 在同类站点中维持着相对可靠的参考形象。
+            </p>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h3>来源标注</h3>
+                    <p>每一条资讯、评测摘要或数据均附参考链接或来源说明，方便交叉验证。</p>
+                </div>
+                <div class="feature-item">
+                    <h3>定期更新</h3>
+                    <p>重要游戏版本更新、活动或政策调整后，站点会在合理周期内同步修订。</p>
+                </div>
+                <div class="feature-item">
+                    <h3>结构清晰</h3>
+                    <p>分类与标签系统经过设计，避免信息杂乱，利于按类型或主题浏览。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 使用场景 / 自然介绍段落 -->
+        <section class="intro-block">
+            <h2>适合哪些阅读场景</h2>
+            <p>
+                无论是想回顾经典游戏的演变轨迹，还是了解近期热门作品的综合评价，<a href="https://official-home-i-game.com.cn">爱游戏</a> 都能提供一份经过梳理的参考。对于新入门的玩家，这里也有基础向的指南与术语说明，帮助快速建立认知框架。
+            </p>
+            <p class="inset">
+                另外，如果你在寻找某个游戏的发行时间、开发者背景或版本区别，站点内的索引页往往能直接给出答案。编辑团队重视信息的实用性，会主动避免冗长空洞的渲染。
+            </p>
+        </section>
+
+        <!-- FAQ 摘要（简短，配合可信说明） -->
+        <div class="faq-mini">
+            <details>
+                <summary>站点的信息更新频率如何？</summary>
+                <p>主要依据游戏行业动态及社区反馈，通常每周会有至少一次内容刷新或勘误。重大事件会在 48 小时内跟进说明。</p>
+            </details>
+            <details>
+                <summary>是否有用户投稿或纠错渠道？</summary>
+                <p>当前主要通过站点内联系表单接收建议。编辑组会认真对待每一份反馈，并在页面中鸣谢贡献者（不透露个人隐私）。</p>
+            </details>
+            <details>
+                <summary>内容是否涵盖所有平台？</summary>
+                <p>覆盖 PC、主机及主流移动平台，但会优先选择具有代表性的作品进行收录，避免列表过于臃肿。</p>
+            </details>
+        </div>
+
+        <!-- 页尾访问提示 -->
+        <div class="footer-note">
+            <p>如果你希望进一步探索游戏资讯与专题内容，可以直接访问 <strong><a href="https://official-home-i-game.com.cn">爱游戏</a></strong>，那里汇集了更多经过整理的条目与索引。</p>
+            <p style="margin-top: 0.6rem; font-size: 0.9rem; opacity: 0.7;">—— 以务实态度，呈现游戏世界的真实面貌。</p>
+        </div>
+
+    </main>
+</body>
+</html>
